@@ -1,7 +1,11 @@
 
 package Clientes;
 	
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Date;
+import java.util.Objects;
+import java.util.Scanner;
 
 
 
@@ -109,9 +113,68 @@ public class Cliente {
         this.salida = salida;
     }
     
+    public static void CargarDatos() throws FileNotFoundException{
     
+        LinkedList <Cliente> Listaclientes = new LinkedList<>();
+        Cliente a;
+        String data[];
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Carl\\Desktop\\Proyecto-2 EDD\\Proyecto-EDD2\\reservas.csv"))){
+            while(scFile.hasNextLine()){
+                data = scFile.nextLine().split(",");
+                a = new Cliente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]);
+                Listaclientes.AddFirst(a);
+    
+            }  
+}
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public int hashCode() {
+       //TODO: check for nulls
+       //return surname.hashCode() ^ name.hashCode() ^ secondName.hashCode() ^ (birthday.hashCode());
+       return (ci  + primer_nombre + segundo_nombre + email + genero + tipo_hab + celular + llegada + salida ).hashCode();
+    }
 
-    
-    
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.ci, other.ci)) {
+            return false;
+        }
+        if (!Objects.equals(this.primer_nombre, other.primer_nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.segundo_nombre, other.segundo_nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.genero, other.genero)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo_hab, other.tipo_hab)) {
+            return false;
+        }
+        if (!Objects.equals(this.celular, other.celular)) {
+            return false;
+        }
+        if (!Objects.equals(this.llegada, other.llegada)) {
+            return false;
+        }
+        return Objects.equals(this.salida, other.salida);
+    }
 }

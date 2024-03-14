@@ -27,9 +27,9 @@ public class Load {
                 a = new Cliente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]);
                 Listaclientes.AddFirst(a);
                 
-                //for (int i = 0; i < Listaclientes.size; i++) {
-                    //JOptionPane.showMessageDialog(null, a);
-        //}
+                for (int i = 0; i < Listaclientes.size; i++) {
+                    JOptionPane.showMessageDialog(null, a);
+        }
             }
             JOptionPane.showMessageDialog(null, "Se han añadido las reservas");
         }catch (Exception e){
@@ -83,4 +83,4 @@ public class Load {
     return al;
 }*/
 }
-}
+
