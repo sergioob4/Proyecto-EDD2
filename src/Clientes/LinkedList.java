@@ -21,7 +21,7 @@ public class LinkedList <T> {
         this.size = 0;
     }
     
-    public void AddFirst(Object data){
+    public void addfirst(Object data){
         Nodo newnodo = new Nodo(data);
         if(pfirst == null){
             pfirst = plast = newnodo;
@@ -32,7 +32,7 @@ public class LinkedList <T> {
         size++;
     }
     
-    public void AddLast(Object data){
+    public void addlast(Object data){
     
         Nodo newnodo = new Nodo(data);
         if (pfirst == null) {
@@ -44,22 +44,22 @@ public class LinkedList <T> {
         }
         size++;
     }
-    public boolean IsEmpty(){
+    public boolean isempty(){
         return pfirst == null;
     }
     
-    public void Empty(){
+    public void empty(){
     
         this.pfirst = null;
         this.plast = null;
         this.size = 0;
     }
     
-    public void DeleteAtStart(){
+    public void deleteatstart(){
     
-        if (!this.IsEmpty()) {
+        if (!this.isempty()) {
             if (size == 1) {
-                this.Empty();
+                this.empty();
                 
             }else{
                 pfirst = pfirst.getnext();
@@ -69,10 +69,47 @@ public class LinkedList <T> {
         }
     }
     
-    public void Print(){
+    public void deletevalue(T value){
+    
+        if (!this.isempty()) {
+            if (size == 1) {
+                this.empty();
+                
+            }else{
+                Nodo x = pfirst;
+                while((!value.equals(x.getnext().getData()))){
+                    x = x.getnext();
+                }
+                x.setnext(x.getnext().getnext());
+            }
+            size --;
+        }
+    }
+    
+
+     public void deletekey(String key){
+    
+        if (!this.isempty()) {
+            if (size == 1) {
+                this.empty();
+                
+            }else{
+                Nodo x = pfirst;
+                while((!key.equals(x.getnext().getData()))){
+                    x = x.getnext();
+                }
+                x.setnext(x.getnext().getnext());
+            }
+            size --;
+        }
+    }
+    
+    
+    
+    public void print(){
     
         Nodo temp = pfirst;
-        if (!this.IsEmpty()) {
+        if (!this.isempty()) {
             System.out.println("La lista esta vacia...");
             
         }

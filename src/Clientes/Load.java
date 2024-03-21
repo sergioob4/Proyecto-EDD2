@@ -6,8 +6,6 @@ package Clientes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -18,18 +16,17 @@ Aqui donde se deberian cargar los clientes del excell
 public class Load {
     public static void CargarDatos() throws FileNotFoundException{
     
-        LinkedList <Cliente> Listaclientes = new LinkedList<>();
         Cliente a;
+        TablaHash reservas = new TablaHash();
         String data[];
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Carl\\Desktop\\Proyecto-2 EDD\\Proyecto-EDD2\\reservas.csv"))){
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Estudiantes\\PROYECTO CD\\Proyecto-EDD2"))){
             while(scFile.hasNextLine()){
                 data = scFile.nextLine().split(",");
                 a = new Cliente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]);
-                Listaclientes.AddFirst(a);
+                String key = a.getCi();
+                reservas.put(key, data);
                 
-                for (int i = 0; i < Listaclientes.size; i++) {
-                    JOptionPane.showMessageDialog(null, a);
-        }
+                
             }
             JOptionPane.showMessageDialog(null, "Se han añadido las reservas");
         }catch (Exception e){
@@ -82,5 +79,6 @@ public class Load {
     }while (!ci.equalsIgnoreCase("FIN"));
     return al;
 }*/
+}
 }
 

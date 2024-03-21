@@ -12,6 +12,12 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Carl
+ 
+ */
+/**
+ *
+ * @author Carl
+ * @param <T>
  */
 public class TablaHash<T> { // Constructor
     
@@ -54,7 +60,7 @@ public class TablaHash<T> { // Constructor
     }
     
     
-    private void put(String key, T value){
+    public void put(String key, T value){
             
         int hashedkey = key.toLowerCase().hashCode();
         int hash = hashFuntion(hashedkey);
@@ -73,9 +79,10 @@ public class TablaHash<T> { // Constructor
             }
             
             estaentrada.setNext(Nuevaentrada);
+            
         }
         
-        this.Listaentrada.AddLast(value);
+        this.Listaentrada.addlast(value);
     }
     
     private int hashFuntion(int  key){
@@ -108,23 +115,30 @@ public class TablaHash<T> { // Constructor
         }else{
             
             //Conseguir el siguiente elemento en la lista de colisiones si existe
-            Entrada<T> nododentro = this.tablahash[hash].getNext();
-            
-            //Eliminamos la entrada de la lista de entry
-            //HACER UN WHILE DONDE LA COMPARATIVA SEA TRUE Y SI ES TRUE SE BORRA, SI NO CAMBIAS
-            this.Listaentrada.DeleteAtStart(((nododentro.getHashkey() == hashedkey)&& nododentro.getKey().equals(key.toLowerCase())));
-            
-            
+            Entrada<T> nododentro = this.tablahash[hash];
+            if (nododentro.getKey().equals(key)) {
+                this.tablahash[hash] = nododentro.getNext();
+                nododentro = null;
+            }else{
+                while(!nododentro.getNext().getKey().equals(key)){
+                    nododentro = nododentro.getNext();
+                }
+                nododentro.setNext(null);
+            }
+            this.Listaentrada.deletekey(key);
+               
         }
+    }
         
         private void clear(){
         this.tablahash = new Entrada[this.tamtabla];
-        this.Listaentrada.Empty();
+        this.Listaentrada.empty();
         this.tableSize = 0;
        }
         
     }
     
+
     
     
   
