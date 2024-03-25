@@ -30,10 +30,34 @@ public class TablaHash<T> { // Constructor
     
     private final  LinkedList<T> Listaentrada;
 
+    public static int getTamtabla() {
+        return tamtabla;
+    }
+
+    public LinkedList<T> getListaentrada() {
+        return Listaentrada;
+    }
+
     public TablaHash() {
         this.tablahash = new Entrada[tamtabla];
         this.Listaentrada = new LinkedList();
         this.tableSize = 0;
+    }
+
+    public int getTableSize() {
+        return tableSize;
+    }
+
+    public void setTableSize(int tableSize) {
+        this.tableSize = tableSize;
+    }
+
+    public Entrada<T>[] getTablahash() {
+        return tablahash;
+    }
+
+    public void setTablahash(Entrada<T>[] tablahash) {
+        this.tablahash = tablahash;
     }
     
     public boolean KeyExiste(String key){

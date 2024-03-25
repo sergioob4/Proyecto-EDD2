@@ -11,7 +11,6 @@ public class Iniciador {
         Inicio i = new Inicio();
         
         i.setVisible(true); //Iniciar el programa
-        Load c = new Load();
-        c.CargarDatos();
+        Load.CargarDatos();
     }
 }

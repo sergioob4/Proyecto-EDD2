@@ -6,6 +6,7 @@ package Clientes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Enumeration;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -19,19 +20,31 @@ public class Load {
         Cliente a;
         TablaHash reservas = new TablaHash();
         String data[];
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Estudiantes\\PROYECTO CD\\Proyecto-EDD2"))){
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Familia Reyes\\OneDrive\\Desktop\\Proyecto 2\\Proyecto-EDD2\\reservas.csv"))){
+            
+            if (scFile.nextLine().contains("ci")) {
+                scFile.nextLine();
+            }
+    
             while(scFile.hasNextLine()){
                 data = scFile.nextLine().split(",");
                 a = new Cliente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]);
-                String key = a.getCi();
+                String key = a.getPrimer_nombre() + a.getSegundo_nombre();
                 reservas.put(key, data);
+                for (int i = 0; i < reservas.getTablahash().length; i++) {
                 
+                System.out.println(a);
+                break;
+            }
                 
             }
             JOptionPane.showMessageDialog(null, "Se han añadido las reservas");
+            
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se cargaron las reservas");
-        
+            
+            
+            
     }
         
         
