@@ -103,6 +103,22 @@ public class LinkedList <T> {
             size --;
         }
     }
+     
+     public Nodo searchNode(T value) {
+        if (isempty()) {
+            return null; 
+        }
+
+        Nodo actual = pfirst;
+        while (actual != null) {
+            if (value.equals(actual.getData())) {
+                return actual; 
+            }
+            actual = actual.getnext();
+        }
+
+        return null; 
+    }
     
     
     

@@ -4,6 +4,11 @@
  */
 package Interfaz;
 
+import Clientes.Load;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Sergio
@@ -15,6 +20,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        
     }
 
     /**
@@ -95,9 +101,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBusquedaActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        Busqueda busqueda = new Busqueda();
+        Registro registro = new Registro();
         
-        busqueda.setVisible(true); //Hacer visible la variable 
+        registro.setVisible(true); //Hacer visible la variable 
         
         this.dispose(); //Para no acumular ventanas 
     }//GEN-LAST:event_jButtonRegistrarActionPerformed

@@ -6,7 +6,6 @@ package Clientes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Enumeration;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -15,36 +14,53 @@ Aqui donde se deberian cargar los clientes del excell
 
 */
 public class Load {
-    public static void CargarDatos() throws FileNotFoundException{
-    
+
+    /**
+     *
+     * @throws FileNotFoundException
+     */
         Cliente a;
-        TablaHash reservas = new TablaHash();
+        TablaHash estado;
         String data[];
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Familia Reyes\\OneDrive\\Desktop\\Proyecto 2\\Proyecto-EDD2\\reservas.csv"))){
+        
+    public TablaHash getEstado() {
+        return estado;
+    }
+    
+    public Load() {
+        this.estado = new TablaHash();
+    }
+    
+    public void cargardatosestado() throws FileNotFoundException{
+    
+        
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Familia Reyes\\OneDrive\\Desktop\\Proyecto 2\\Proyecto-EDD2\\estado.csv"))){
             
-            if (scFile.nextLine().contains("ci")) {
+            if (scFile.nextLine().contains("num_hab")) {
                 scFile.nextLine();
             }
     
             while(scFile.hasNextLine()){
                 data = scFile.nextLine().split(",");
-                a = new Cliente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]);
-                String key = a.getPrimer_nombre() + a.getSegundo_nombre();
-                reservas.put(key, data);
-                for (int i = 0; i < reservas.getTablahash().length; i++) {
+                a = new Cliente("",data[1].toLowerCase(),data[2].toLowerCase(),data[3].toLowerCase(),data[4].toLowerCase(),"",data[5],data[6],"",data[0]);
+                String key = this.a.getPrimer_nombre() + this.a.getSegundo_nombre();
+                int hashkey = a.hashCode();
+                System.out.println(hashkey);
+                estado.put(key, data);
+                for (int i = 0; i < estado.getTablahash().length; i++) {
                 
                 System.out.println(a);
                 break;
             }
                 
             }
-            JOptionPane.showMessageDialog(null, "Se han añadido las reservas");
+            JOptionPane.showMessageDialog(null, "Se han añadido los estados");
             
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se cargaron las reservas");
             
             
-            
+         
     }
         
         
@@ -92,6 +108,7 @@ public class Load {
     }while (!ci.equalsIgnoreCase("FIN"));
     return al;
 }*/
+    
 }
 }
 

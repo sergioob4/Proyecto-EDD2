@@ -4,6 +4,9 @@
  */
 package Clientes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 
@@ -160,7 +163,9 @@ public class TablaHash<T> { // Constructor
         this.tableSize = 0;
        }
         
+        
     }
+
     
 
     

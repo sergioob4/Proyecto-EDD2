@@ -23,8 +23,9 @@ public class Cliente {
     String celular;
     String llegada;
     String salida;
+    String num_hab;
 
-    public Cliente(String ci,String primer_nombre,String segundo_nombre,String email,String genero,String tipo_hab,String celular,String llegada,String salida) {
+    public Cliente(String ci,String primer_nombre,String segundo_nombre,String email,String genero,String tipo_hab,String celular,String llegada,String salida,String num_hab) {
         this.ci=ci;
         this.primer_nombre=primer_nombre;
         this.segundo_nombre=segundo_nombre;
@@ -34,11 +35,12 @@ public class Cliente {
         this.celular=celular;
         this.llegada=llegada;
         this.salida=salida;
+        this.num_hab= num_hab;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "ci=" + ci + ", primer_nombre=" + primer_nombre + ", segundo_nombre=" + segundo_nombre + ", email=" + email + ", genero=" + genero + ", tipo_hab=" + tipo_hab + ", celular=" + celular + ", llegada=" + llegada + ", salida=" + salida + '}';
+        return "Cliente{" + "ci=" + ci + ", primer_nombre=" + primer_nombre + ", segundo_nombre=" + segundo_nombre + ", email=" + email + ", genero=" + genero + ", tipo_hab=" + tipo_hab + ", celular=" + celular + ", llegada=" + llegada + ", salida=" + salida + ", num_habitacion=" + num_hab + '}';
     }
 
     public String getCi() {
@@ -113,20 +115,7 @@ public class Cliente {
         this.salida = salida;
     }
     
-    public static void CargarDatos() throws FileNotFoundException{
     
-        LinkedList <Cliente> Listaclientes = new LinkedList<>();
-        Cliente a;
-        String data[];
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Carl\\Desktop\\Proyecto-2 EDD\\Proyecto-EDD2\\reservas.csv"))){
-            while(scFile.hasNextLine()){
-                data = scFile.nextLine().split(",");
-                a = new Cliente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]);
-                Listaclientes.addfirst(a);
-    
-            }  
-}
-    }
     
     /**
      *
