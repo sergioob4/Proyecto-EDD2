@@ -54,5 +54,28 @@ public class ArbolBinario{
         r.visitar();
 	}
     }
+    
+        public void insertarNodo(Object valor){
+        raiz = insertarNodoRecursivo(raiz, valor);
+    }
+
+    private Nodo insertarNodoRecursivo(Nodo nodo, Object valor){
+        if(nodo == null){
+            return new Nodo(valor);
+        }   
+
+        int comparacion = ((Comparable)valor).compareTo((Comparable)nodo.getDato());
+
+        if(comparacion < 0){
+            nodo.setIzdo(insertarNodoRecursivo(nodo.getIzdo(), valor));
+        }else if(comparacion > 0){
+            nodo.setDcho(insertarNodoRecursivo(nodo.getDcho(), valor));
+        }else{
+        // El valor ya existe en el árbol, no se inserta
+        }
+
+        return nodo;
+    }
+
 
 }

@@ -4,6 +4,7 @@
  */
 package Clientes;
 
+import Interfaz.*;
 import Clientes.Cliente;
 import java.awt.Component;
 import java.io.File;
@@ -11,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import arbolBinarioBusqueda.*;
+import ArbolBeta.*;
 
 /*
 Aqui donde se deberian cargar los clientes del excell
@@ -30,7 +31,7 @@ public class Load {
         String data1[];
         TablaHash historial;
         String data2[];
-        ArbolBinarioBusqueda j = new ArbolBinarioBusqueda();
+        ArbolBinario j = new ArbolBinario();
         
     public TablaHash getEstado() {
         return estado;
@@ -148,11 +149,20 @@ public class Load {
     public void cargareservasarbol() throws Exception{
         
         for (int i = 0; i < historial.getTablahash().length; i++) {
-                j.insertar(a);
+                j.insertarNodo(a);
                 System.out.println(a);
                 break;
                 
             }
+        
+
+    }
+    
+    public void buscarReserva(){
+        
+
+        
+        
     }
         
     
