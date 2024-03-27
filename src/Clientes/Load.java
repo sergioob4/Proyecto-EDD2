@@ -29,6 +29,7 @@ public class Load {
         TablaHash historial;
         String data2[];
         ArbolBinario j = new ArbolBinario();
+        ArbolBinario Reserva = new ArbolBinario();
         
     public TablaHash getEstado() {
         return estado;
@@ -143,7 +144,7 @@ public class Load {
        }
     }
     
-    public void cargareservasarbol() throws Exception{
+    public void cargarhistorialsarbol() throws Exception{
         
         for (int i = 0; i < historial.getTablahash().length; i++) {
                 j.insertarEnRaiz(historial.getListaentrada());
@@ -155,7 +156,30 @@ public class Load {
 
     }
     
-    public void buscarReserva(){
+    public void cargarReservasArbol(){
+           for (int i = 0; i < reservas.getTablahash().length; i++) {
+                //Reserva.insertarEnRaiz(reservas.getListaentrada()); da error 
+                System.out.println(Reserva.getRaiz().valorNodo(a));
+                break;
+                
+            }
+           
+    }
+           
+    public void checkIn(Object i){
+        //Ver si el cliente esta en las reservas 
+        
+        Nodo e = new Nodo(i);
+        
+        
+        
+    }
+    
+    public void checkOut(Object x){
+        
+        Nodo o = new Nodo(x);
+        
+        
         
 
         
