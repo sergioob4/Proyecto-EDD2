@@ -146,8 +146,8 @@ public class Load {
     public void cargareservasarbol() throws Exception{
         
         for (int i = 0; i < historial.getTablahash().length; i++) {
-                j.insertarEnRaiz(a);
-                System.out.println(a);
+                j.insertarEnRaiz(historial.getListaentrada());
+                System.out.println(j.getRaiz().valorNodo(a));
                 break;
                 
             }

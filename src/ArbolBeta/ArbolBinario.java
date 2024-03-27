@@ -6,6 +6,16 @@ package ArbolBeta;
  * @author Sergio
  */
 public class ArbolBinario{
+    
+    
+
+    public Nodo getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(Nodo raiz) {
+        this.raiz = raiz;
+    }
     protected Nodo raiz;
     
     public ArbolBinario(){
