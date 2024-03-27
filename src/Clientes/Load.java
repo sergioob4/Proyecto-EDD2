@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Clientes;
 
 import Interfaz.*;
@@ -72,7 +69,7 @@ public class Load {
             JOptionPane.showMessageDialog(null, "Se han añadido los estados");
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se cargaron las reservas");
+            JOptionPane.showMessageDialog(null, "No se cargaron los estados");
             
             
          
@@ -149,7 +146,7 @@ public class Load {
     public void cargareservasarbol() throws Exception{
         
         for (int i = 0; i < historial.getTablahash().length; i++) {
-                j.insertarNodo(a);
+                j.insertarEnRaiz(a);
                 System.out.println(a);
                 break;
                 

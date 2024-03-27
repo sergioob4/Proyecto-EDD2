@@ -55,27 +55,27 @@ public class ArbolBinario{
 	}
     }
     
-        public void insertarNodo(Object valor){
-        raiz = insertarNodoRecursivo(raiz, valor);
+    public void insertarEnRaiz(Object objeto) throws Exception {
+    // Convertir el objeto a un Nodo
+        Nodo nodo = new Nodo(objeto);
+
+    // Si el árbol está vacío, el nodo se convierte en la raíz
+        if (raiz == null) {
+            raiz = nodo;
+        } else {
+        // Crear un nuevo nodo que será la nueva raíz
+            Nodo nuevaRaiz = new Nodo(raiz.getDato());
+            nuevaRaiz.izdo = raiz;
+
+        // Insertar el nodo como hijo izquierdo de la nueva raíz
+            nuevaRaiz.dcho = nodo;
+
+        // Reemplazar la raíz por la nueva raíz
+            raiz = nuevaRaiz;
     }
+}
 
-    private Nodo insertarNodoRecursivo(Nodo nodo, Object valor){
-        if(nodo == null){
-            return new Nodo(valor);
-        }   
 
-        int comparacion = ((Comparable)valor).compareTo((Comparable)nodo.getDato());
-
-        if(comparacion < 0){
-            nodo.setIzdo(insertarNodoRecursivo(nodo.getIzdo(), valor));
-        }else if(comparacion > 0){
-            nodo.setDcho(insertarNodoRecursivo(nodo.getDcho(), valor));
-        }else{
-        // El valor ya existe en el árbol, no se inserta
-        }
-
-        return nodo;
-    }
 
 
 }
