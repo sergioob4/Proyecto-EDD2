@@ -144,7 +144,7 @@ public class Load {
        }
     }
     
-    public void cargarhistorialsarbol() throws Exception{
+    public void cargareservasarbol() throws Exception{
         
         for (int i = 0; i < historial.getTablahash().length; i++) {
                 j.insertarEnRaiz(historial.getListaentrada());

@@ -38,14 +38,17 @@ public class Inicio extends javax.swing.JFrame {
         jInicioHistorial = new javax.swing.JButton();
         jButtonBusqueda = new javax.swing.JButton();
         jButtonRegistrar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel1.setText("Inicio");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 110, -1));
+        jLabel1.setText("Bienvido Hidotel tu Hotel");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 320, -1));
 
         jInicioHistorial.setText("Historial");
         jInicioHistorial.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +56,7 @@ public class Inicio extends javax.swing.JFrame {
                 jInicioHistorialActionPerformed(evt);
             }
         });
-        jPanel1.add(jInicioHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 150, -1));
+        jPanel1.add(jInicioHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 90, 40));
 
         jButtonBusqueda.setText("Busqueda");
         jButtonBusqueda.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +64,7 @@ public class Inicio extends javax.swing.JFrame {
                 jButtonBusquedaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 150, -1));
+        jPanel1.add(jButtonBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 90, 40));
 
         jButtonRegistrar.setText("Registrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,45 +72,64 @@ public class Inicio extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 90, 50));
+
+        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel2.setForeground(new java.awt.Color(153, 204, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 120, 520));
+
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jInicioHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInicioHistorialActionPerformed
-        Historial historial = new Historial();
-        
-        historial.setVisible(true); //Hacer visible la variable 
-        
-        this.dispose(); //Para no acumular ventanas 
-    }//GEN-LAST:event_jInicioHistorialActionPerformed
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        Registro registro = new Registro();
+
+        registro.setVisible(true); //Hacer visible la variable
+
+        this.dispose(); //Para no acumular ventanas
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBusquedaActionPerformed
         Busqueda busqueda = new Busqueda();
-        
-        busqueda.setVisible(true); //Hacer visible la variable 
-        
-        this.dispose(); //Para no acumular ventanas 
+
+        busqueda.setVisible(true); //Hacer visible la variable
+
+        this.dispose(); //Para no acumular ventanas
     }//GEN-LAST:event_jButtonBusquedaActionPerformed
 
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        Registro registro = new Registro();
-        
-        registro.setVisible(true); //Hacer visible la variable 
-        
-        this.dispose(); //Para no acumular ventanas 
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
+    private void jInicioHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInicioHistorialActionPerformed
+        Historial historial = new Historial();
+
+        historial.setVisible(true); //Hacer visible la variable
+
+        this.dispose(); //Para no acumular ventanas
+    }//GEN-LAST:event_jInicioHistorialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +172,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jInicioHistorial;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

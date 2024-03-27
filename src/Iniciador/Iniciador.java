@@ -18,7 +18,7 @@ public class Iniciador {
             a.cargardatosreservas();
             a.cargardatoshistorial();
             try {
-                a.cargareservasarbol();
+                a.cargarReservasArbol();
             } catch (Exception ex) {
                 Logger.getLogger(Iniciador.class.getName()).log(Level.SEVERE, null, ex);
             }
