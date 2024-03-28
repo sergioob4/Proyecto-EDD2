@@ -28,7 +28,7 @@ public class Load {
         String data1[];
         TablaHash historial;
         String data2[];
-        ArbolBinario j = new ArbolBinario();
+        public ArbolBinario j = new ArbolBinario();
         ArbolBinario Reserva = new ArbolBinario();
         
     public TablaHash getEstado() {
@@ -48,7 +48,7 @@ public class Load {
     
     public void cargardatosestado() throws FileNotFoundException{
  
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Familia Reyes\\OneDrive\\Desktop\\Proyecto 2\\Proyecto-EDD2\\estado.csv"))){
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Carl\\Desktop\\Proyecto-2 EDD\\Proyecto-EDD2\\estado.csv"))){
             
             if (scFile.nextLine().contains("num_hab")) {
                 scFile.nextLine();
@@ -57,7 +57,7 @@ public class Load {
             while(scFile.hasNextLine()){
                 data = scFile.nextLine().split(",");
                 a = new Cliente("",data[1].toLowerCase(),data[2].toLowerCase(),data[3].toLowerCase(),data[4].toLowerCase(),"",data[5],data[6],"",data[0]);
-                String key = this.a.getPrimer_nombre() + this.a.getSegundo_nombre();
+                String key = data[1].toLowerCase()+data[2].toLowerCase();
                 int hashkey = a.hashCode();
                 estado.put(key, data);
                 for (int i = 0; i < estado.getTablahash().length; i++) {
@@ -84,7 +84,7 @@ public class Load {
     public void cargardatosreservas() throws FileNotFoundException{
     
  
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Familia Reyes\\OneDrive\\Desktop\\Proyecto 2\\Proyecto-EDD2\\reservas.csv"))){
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Carl\\Desktop\\Proyecto-2 EDD\\Proyecto-EDD2\\reservas.csv"))){
             
             if (scFile.nextLine().contains("ci")) {
                 scFile.nextLine();
@@ -116,7 +116,7 @@ public class Load {
     
     public void cargardatoshistorial() throws FileNotFoundException{
     
-        try (Scanner scFile = new Scanner(new File("C:\\Users\\Familia Reyes\\OneDrive\\Desktop\\Proyecto 2\\Proyecto-EDD2\\historico.csv"))){
+        try (Scanner scFile = new Scanner(new File("C:\\Users\\Carl\\Desktop\\Proyecto-2 EDD\\Proyecto-EDD2\\historico.csv"))){
             
             if (scFile.nextLine().contains("num_hab")) {
                 scFile.nextLine();
@@ -147,8 +147,9 @@ public class Load {
     public void cargareservasarbol() throws Exception{
         
         for (int i = 0; i < historial.getTablahash().length; i++) {
-                j.insertarEnRaiz(historial.getListaentrada());
-                System.out.println(j.getRaiz().valorNodo(a));
+                j.insertarEnRaiz(historial.getListaentrada().pfirst);
+                System.out.println(j.getRaiz().getDato().toString());
+                j.size++;
                 break;
                 
             }
@@ -156,15 +157,32 @@ public class Load {
 
     }
     
-    public void cargarReservasArbol(){
-           for (int i = 0; i < reservas.getTablahash().length; i++) {
-                //Reserva.insertarEnRaiz(reservas.getListaentrada()); da error 
-                System.out.println(Reserva.getRaiz().valorNodo(a));
-                break;
-                
-            }
-           
+    public int cantidadnodosarbol(){
+        
+        return j.size;
+      
     }
+    
+    public void buscardatosreserva(String key){
+        
+        
+        for (int i = 0; i < j.size ; i++) {
+            Object raiz = j.getRaiz();
+         while(!key.equals(raiz.toString())){
+             Object izquierdo = j.raizArbol().getIzdo().getDato().toString();
+             Object derecho = j.raizArbol().getDcho().getDato().toString();
+             if (izquierdo.equals(key)) {
+                 JOptionPane.showMessageDialog(null, izquierdo);
+             }if (derecho.equals(key)) {
+                 JOptionPane.showMessageDialog(null, derecho);
+             }
+             
+             
+         }  
+            
+        }
+    }
+    
            
     public void checkIn(Object i){
         //Ver si el cliente esta en las reservas 

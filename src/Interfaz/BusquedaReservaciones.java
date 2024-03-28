@@ -4,6 +4,9 @@
  */
 package Interfaz;
 
+import Clientes.Load;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sergio
@@ -33,7 +36,7 @@ public class BusquedaReservaciones extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        CedulaReservación = new javax.swing.JTextField();
         BuscarReservación = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -100,9 +103,9 @@ public class BusquedaReservaciones extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 630, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel3.setText("Por favor solo coloque la cedula");
+        jLabel3.setText("Por favor, solo coloque la cedula");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 350, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 272, 340, 60));
+        jPanel1.add(CedulaReservación, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 272, 340, 60));
 
         BuscarReservación.setText("BUSCAR");
         BuscarReservación.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +153,20 @@ public class BusquedaReservaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BuscarReservaciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservaciónActionPerformed
-        // TODO add your handling code here:
+        String reservacionbuscada = CedulaReservación.getText();
+        String ignorar = "qwertyuiopasdfghjklñzxcvbnm,´-+<>";
+        Load h = new Load();
+        
+        if (reservacionbuscada.contentEquals(ignorar)) {
+            JOptionPane.showMessageDialog(rootPane, evt, "Por favor, introduce una cédula válida", HEIGHT);
+        } 
+            if (h.j.getRaiz().getDato().toString().equals(reservacionbuscada)) {
+            JOptionPane.showMessageDialog(null, "Reservación encontrada");
+            h.buscardatosreserva(reservacionbuscada);
+        }else{
+            JOptionPane.showMessageDialog(null, "Reservación no encontrada");
+            h.buscardatosreserva(reservacionbuscada);
+        }
     }//GEN-LAST:event_BuscarReservaciónActionPerformed
 
     /**
@@ -160,6 +176,7 @@ public class BusquedaReservaciones extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarReservación;
+    private javax.swing.JTextField CedulaReservación;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -170,6 +187,5 @@ public class BusquedaReservaciones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

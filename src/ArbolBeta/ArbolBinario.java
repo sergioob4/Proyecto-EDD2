@@ -6,7 +6,7 @@ package ArbolBeta;
  * @author Sergio
  */
 public class ArbolBinario{
-    
+     public int size;
     
 
     public Nodo getRaiz() {
@@ -20,9 +20,11 @@ public class ArbolBinario{
     
     public ArbolBinario(){
         raiz = null;
+        int tamanio;
     }
     public ArbolBinario(Nodo raiz){
         this.raiz = raiz;
+        size = 0;
 	 	 }
     public Nodo raizArbol(){
         return raiz;
@@ -72,11 +74,12 @@ public class ArbolBinario{
     // Si el árbol está vacío, el nodo se convierte en la raíz
         if (raiz == null) {
             raiz = nodo;
+            size++;
         } else {
         // Crear un nuevo nodo que será la nueva raíz
             Nodo nuevaRaiz = new Nodo(raiz.getDato());
             nuevaRaiz.izdo = raiz;
-
+            size++;
         // Insertar el nodo como hijo izquierdo de la nueva raíz
             nuevaRaiz.dcho = nodo;
 
